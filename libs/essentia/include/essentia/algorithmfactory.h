@@ -127,7 +127,7 @@ class ESSENTIA_API EssentiaFactory {
       // insert object into the factory, or overwrite the existing one if any
       CreatorMap& algoMap = EssentiaFactory::instance()._map;
       if (algoMap.find(entry.name) != algoMap.end()) {
-        E_WARNING("Overwriting registered algorithm " << entry.name);
+        //E_ WARNING("Overwriting registered algorithm " << entry.name);
         algoMap[entry.name] = entry;
       }
       else {
