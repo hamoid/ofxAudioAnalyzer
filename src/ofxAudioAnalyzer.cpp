@@ -119,8 +119,10 @@ vector<float>& ofxAudioAnalyzer::getValues(ofxAAAlgorithm algorithm, int channel
     
     if (channel >= _channels){
         ofLogError()<<"ofxAudioAnalyzer: channel for getting value is incorrect.";
-        vector<float>r (1, 0.0);
-        return r;
+        // Note: return a local variable as a reference is undefined behavior.
+//        vector<float>r (1, 0.0);
+//        return r;
+        channel = 0;
     }
     
     return channelAnalyzerUnits[channel]->getValues(algorithm, smooth);
@@ -131,8 +133,10 @@ vector<SalienceFunctionPeak>& ofxAudioAnalyzer::getSalienceFunctionPeaks(int cha
     if (channel >= _channels){
         ofLogError()<<"ofxAudioAnalyzer: channel for getting value is incorrect.";
         //SalienceFunctionPeak peak = SalienceFunctionPeak();
-        vector<SalienceFunctionPeak> r(1, SalienceFunctionPeak());
-        return r;
+        // Note: return a local variable as a reference is undefined behavior.
+//        vector<SalienceFunctionPeak> r(1, SalienceFunctionPeak());
+//        return r;
+        channel = 0;
     }
     
      return channelAnalyzerUnits[channel]->getPitchSaliencePeaksRef(smooth);
